@@ -4,7 +4,7 @@ import axios from "axios";
 import "components/Application.scss";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay } from "helpers/selectors";
-
+import { getInterview } from "helpers/selectors";
 // const appointments = [
 //   {
 //     id: 1,
@@ -33,7 +33,8 @@ export default function Application(props) {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {},
+    interviewers: {}
   });
 
   const setDay = day => setState({ ...state, day });
@@ -55,26 +56,14 @@ export default function Application(props) {
 
   useEffect(() => {
 
-    Promise.all([Promise.resolve(axios.get("/api/days")), Promise.resolve(axios.get("/api/appointments"))
-    ])
+    Promise.all([  Promise.resolve(axios.get("/api/days")) , Promise.resolve(axios.get("/api/appointments")) , Promise.resolve(axios.get("/api/interviewers")) ])
       .then((all) => {
-
-        setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data }));
-
-
-        //  console.log(fgdsds);
-        // console.log(all[0].data); // first
-        // console.log(all[1].data); // second
-        // console.log(all[2]); // third
-
-        // const [first, second, third] = all;
-
-        // console.log(first, second, third);
+        // console.log(all[2].data);
+        setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
       });
   }, []);
-  // console.log(getAppointmentsForDay(state, state.day));
   let appointments = getAppointmentsForDay(state, state.day);
-  console.log(state);
+  // console.log(state);
   return (
     <main className="layout">
       <section className="sidebar">
@@ -103,8 +92,13 @@ export default function Application(props) {
 
         {
   appointments.map(appointment => {
+    const interview = getInterview(state, appointment.interview);
     return (
-      <Appointment key={appointment.id} {...appointment} />
+      <Appointment  
+      key={appointment.id}
+      id={appointment.id}
+      time={appointment.time}
+      interview={interview} />
     );
   })}
   <Appointment key="last" time="5pm" />
