@@ -29,13 +29,15 @@ export function getInterviewersForDay(state, day) {
 
 
 export function getInterview(state, interview) {
-  let result = {};
+  // console.log(interview)
+  // let result = {};
   if (interview) {
-    for (let items in state.interviewers) {
-      result["interviewer"] = state.interviewers[items];
+    // console.log(interview.interviewer)
+    // console.log(state.interviewers[interview.interviewer])
+    const result = {
+      interviewer:state.interviewers[interview.interviewer],
+      student: interview.student
     }
-    result.student = interview.student;
-    // console.log(result);
     return result;
   }
   else {
