@@ -1,9 +1,11 @@
 import React, { useReducer, useEffect } from "react";
 import axios from "axios";
 
+
 const SET_DAY = "SET_DAY";
 const SET_APPLICATION_DATA = "SET_APPLICATION_DATA";
 const SET_INTERVIEW = "SET_INTERVIEW";
+
 
 export default function useApplicationData() {
   const initialState = {
@@ -13,6 +15,7 @@ export default function useApplicationData() {
     interviewer: {}
   };
 
+  
   const [state, dispatch] = useReducer(reducer, initialState);
 
 
@@ -31,23 +34,20 @@ export default function useApplicationData() {
           interviewers: action.interviewers
         };
       case SET_INTERVIEW: {
-        // return {
-          const appointment = {
-            ...state.appointments[action.id],
-            interview: { ...action.interview }
-          };
-          
-          const appointments = {
-            ...state.appointments,
-            [action.id]: appointment
-          };
-          return {
-            ...state, appointments
-          }
-          // ...state,
-          // id: action.id,
-          // interview: action.interview
-        // };
+   
+        const appointment = {
+          ...state.appointments[action.id],
+          interview: { ...action.interview }
+        };
+
+        const appointments = {
+          ...state.appointments,
+          [action.id]: appointment
+        };
+        return {
+          ...state, appointments
+        }
+
       }
       default:
         throw new Error(
@@ -58,7 +58,16 @@ export default function useApplicationData() {
 
 
 
-  // const setDay = day => dispatch({ type: SET_DAY, day });
+  useEffect(() => {
+
+    Promise.all([Promise.resolve(axios.get("/api/days")), Promise.resolve(axios.get("/api/appointments")), Promise.resolve(axios.get("/api/interviewers"))])
+      .then((all) => {
+        dispatch({ type: SET_APPLICATION_DATA, days: all[0].data, appointments: all[1].data, interviewers: all[2].data });
+      });
+  }, [state.appointments]);
+
+
+ 
 
   function bookInterview(id, interview) {
     console.log(id, interview);
@@ -77,17 +86,6 @@ export default function useApplicationData() {
         dispatch({ type: SET_INTERVIEW, id, interview: null });
       });
   }
-
-  useEffect(() => {
-
-    Promise.all([Promise.resolve(axios.get("/api/days")), Promise.resolve(axios.get("/api/appointments")), Promise.resolve(axios.get("/api/interviewers"))])
-      .then((all) => {
-        // console.log(all[2].data);
-        // setState(prev => ({ ...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
-        // console.log(all[1].data);
-        dispatch({ type: SET_APPLICATION_DATA, days: all[0].data, appointments: all[1].data, interviewers: all[2].data });
-      });
-  }, []);
 
   return {
     state,

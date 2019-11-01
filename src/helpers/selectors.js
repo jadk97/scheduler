@@ -23,17 +23,14 @@ export function getInterviewersForDay(state, day) {
       }
     });
   }
-  // console.log(result)
+ 
   return result;
 }
 
 
 export function getInterview(state, interview) {
-  // console.log(interview)
-  // let result = {};
+
   if (interview) {
-    // console.log(interview.interviewer)
-    // console.log(state.interviewers[interview.interviewer])
     const result = {
       interviewer:state.interviewers[interview.interviewer],
       student: interview.student
