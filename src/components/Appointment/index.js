@@ -33,7 +33,7 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-
+    
     props.bookInterview(props.id, interview).then(() => transition(SHOW)).catch(error => transition(ERROR_SAVE, true));
 
 
@@ -66,7 +66,7 @@ export default function Appointment(props) {
       {mode === ERROR_DELETE && <Error message = "Couldn't cancel your appointment" onClose = {() => {back()}} />}
       {mode === DELETING && <Status message = "Deleting" />}
       {mode === CONFIRM && <Confirm message = "Are you sure you want to delete this?" onConfirm = {deleteInterview} onCancel = {() => {back()}}/>}
-      {mode === SHOW && props.interview && (
+      {mode === SHOW  && props.interview && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
