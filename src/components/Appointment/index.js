@@ -50,9 +50,11 @@ export default function Appointment(props) {
 
     props.cancelInterview(props.id, interview).then(() => transition(EMPTY)).catch(error => transition(ERROR_DELETE, true));
   }
+
+  // console.log('meep', props)
   return (
 
-    <article className="appointment">
+    <article className="appointment" data-testid="appointment" >
       <Header time={props.time}>
 
       </Header>
@@ -64,7 +66,7 @@ export default function Appointment(props) {
       {mode === ERROR_DELETE && <Error message = "Couldn't cancel your appointment" onClose = {() => {back()}} />}
       {mode === DELETING && <Status message = "Deleting" />}
       {mode === CONFIRM && <Confirm message = "Are you sure you want to delete this?" onConfirm = {deleteInterview} onCancel = {() => {back()}}/>}
-      {mode === SHOW && (
+      {mode === SHOW && props.interview && (
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
