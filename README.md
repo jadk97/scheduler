@@ -1,5 +1,5 @@
 # Interview Scheduler
-
+A fully functional interview scheduler created with React and Storybook.
 ## Setup
 
 Install dependencies with `npm install`.
