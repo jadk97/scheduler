@@ -48,7 +48,5 @@ describe("Appointment", () => {
       .should("not.exist");
   });
 
-  // it("should cancel an interview", () => {
-
-  // });
+ 
 })

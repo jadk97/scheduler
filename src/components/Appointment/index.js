@@ -51,7 +51,7 @@ export default function Appointment(props) {
     props.cancelInterview(props.id, interview).then(() => transition(EMPTY)).catch(error => transition(ERROR_DELETE, true));
   }
 
-  // console.log('meep', props)
+ 
   return (
 
     <article className="appointment" data-testid="appointment" >

@@ -1,7 +1,5 @@
 import React from "react";
-// import ReactDOM from "react-dom";
 import DayListItem from "components/DayListItem";
-// const list = days[0];
 
 export default function DayList(props) {
   const list = props.days.map(day => {
@@ -21,7 +19,3 @@ export default function DayList(props) {
   )
 }
 
-// ReactDOM.render(
-//   <DayList day = {day} />,
-//    document.getElementsByName("root")
-// );

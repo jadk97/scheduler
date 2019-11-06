@@ -1,7 +1,7 @@
 import React from "react";
 import "components/DayListItem.scss";
 import classNames from 'classnames/bind';
-// import { format } from "path";
+
 
 export default function DayListItem(props) {
   const dayClass = classNames("li", {
