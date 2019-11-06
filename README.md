@@ -1,5 +1,25 @@
 # Interview Scheduler
-A fully functional interview scheduler created with React and Storybook.
+A single-page interview scheduler created with React and Storybook at Lighthouse Labs.  
+
+## Final Product
+
+### The main page:
+<p align="center">
+  <img src = "https://github.com/jadk97/scheduler/blob/master/docs/appointment_main.png"/>
+</p>
+
+### Booking an appointment:
+<p align = "center">
+  <img src = "https://github.com/jadk97/scheduler/blob/master/docs/appointment_form.png"/>
+</p>
+</br>
+
+### The appointment after it's been booked:
+<p align = "center">
+  <img src = "https://github.com/jadk97/scheduler/blob/master/docs/appointment_submitted.png"/>
+</p>
+</br>
+
 ## Setup
 
 Install dependencies with `npm install`.
