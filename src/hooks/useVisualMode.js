@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
+// Handles tranisitioning between the various states
 export default function useVisualMode(initial) {
   const [mode, setMode] = useState(initial);
   const [history, setHistory] = useState([initial]);

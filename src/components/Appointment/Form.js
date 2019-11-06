@@ -2,19 +2,27 @@ import Button from "components/Button";
 import InterviewerList from "components/InterviewerList";
 import React, { useState } from "react";
 
+//Initializes a form that takes in 2 required inputs: A student name, and an interviewer from the list of interviewers available for the day
+//The user is then able to either save the appointment, which will transition to the Show component once it's been successfully saved and display the booked appointment
+//or cancel the appointment which will revert back to the default Empty component
+
 export default function Form(props) {
   const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const [error, setError] = useState("");
 
+  //resets the name field
   function reset() {
     setName("");
     setInterviewer(null);
   }
+  //resets the entire Form component and reverts back to the Empty component
   function cancel() {
     reset();
     props.onCancel();
   }
+
+  //ensures that the user has typed in a name and selected an interviewer before being able to save their appointment
   function validate() {
     if (name === "") {
       setError("Student name cannot be blank");

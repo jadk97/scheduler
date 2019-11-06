@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
+//Initializes the error component which displays when a user is either unable to save or cancel an appointment
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">

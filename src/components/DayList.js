@@ -1,6 +1,7 @@
 import React from "react";
 import DayListItem from "components/DayListItem";
 
+//Initializes a list containing the days of the week and the number of spots available on each day
 export default function DayList(props) {
   const list = props.days.map(day => {
     return (

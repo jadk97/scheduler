@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
+//Initializes the Show component that displays an appointment once it's been successfully booked through the Form component
 export default function Show(props) {
   return (
     <main className="appointment__card appointment__card--show">

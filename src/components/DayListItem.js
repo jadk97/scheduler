@@ -2,7 +2,7 @@ import React from "react";
 import "components/DayListItem.scss";
 import classNames from 'classnames/bind';
 
-
+//Initializes each individual list item within the DayList component, including how they're formatted 
 export default function DayListItem(props) {
   const dayClass = classNames("li", {
     "day-list__item": props,

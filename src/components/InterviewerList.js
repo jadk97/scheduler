@@ -3,7 +3,7 @@ import "components/InterviewerList.scss";
 import InterviewerListItem from "components/InterviewerListItem";
 import PropTypes from 'prop-types';
 
-
+//Initializes the list of available interviewers that displays within the Form component
 export default function InterviewerList(props) {
 
   InterviewerList.propTypes = {

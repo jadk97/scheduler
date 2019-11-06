@@ -1,6 +1,7 @@
 import Button from "components/Button";
-import React, { useState } from "react";
+import React from "react";
 
+// Initializes that component that renders a confirm box before allowing the user to cancel an appointment
 export default function Confirm(props) {
   return (
     <main className="appointment__card appointment__card--confirm">

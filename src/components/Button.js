@@ -1,9 +1,8 @@
 import React from "react";
-
 import "components/Button.scss";
-import { action } from '@storybook/addon-actions';
 import classNames from 'classnames/bind';
 
+// initializes the "Cancel" and "Save" buttons used in the Form component and the "Cancel" and "Confirm" buttons in the Confirm component
 export default function Button(props) {
 
    const buttonClass = classNames("button", {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
 import Show from "components/Appointment/Show";
@@ -26,7 +26,8 @@ export default function Appointment(props) {
 
   );
 
-
+  // Handles saving appointments and transitioning from the Form component, to the Status component with a "Saving" message passed in, and finally the Show component
+  // if the appointment fails to save, then it will transition from the Status component to the Error component and display the appropriate error message
   function save(name, interviewer) {
     transition(SAVING, true);
     const interview = {
@@ -40,6 +41,8 @@ export default function Appointment(props) {
 
   }
 
+  // Handles deleting appointments and transitioning from the Form component, to the Status component with a "Deleting" message passed in, and finally the Empty component
+  //if the appointment fails to delete, then it will transiton from the Status component to the Error component and display the appropriate error message
   function deleteInterview (name, interviewer){
     
     transition(DELETING, true)

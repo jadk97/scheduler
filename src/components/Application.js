@@ -9,7 +9,7 @@ import useApplicationData from "../hooks/useApplicationData";
 
 
 
-
+//Renders and populates the main page with all the requisite information
 export default function Application(props) {
   const {
     state,
