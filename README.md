@@ -10,7 +10,7 @@ A single-page interview scheduler created with React and Storybook at Lighthouse
 
 ### Booking an appointment:
 <p align = "center">
-  <img src = "https://github.com/jadk97/scheduler/blob/master/docs/appointment_form.png"/>
+  <img src = "https://github.com/jadk97/scheduler/blob/master/docs/appointment_Form.png"/>
 </p>
 </br>
 
